@@ -1,0 +1,23 @@
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "Server creation",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YASHWANTH3004/NodeServer.git"
+  },
+  "author": "Yash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YASHWANTH3004/NodeServer/issues"
+  },
+  "homepage": "https://github.com/YASHWANTH3004/NodeServer#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
