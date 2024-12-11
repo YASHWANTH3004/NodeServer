@@ -22,16 +22,17 @@ const server = http.createServer((req, res) => {
       console.log(chunk);
     });
 
-    req.on("end", () => {
+    return req.on("end", () => {
+      console.log("End event received");
       const parsedBody = Buffer.concat(body).toString();
       const message = parsedBody.split("=");
-      fs.writeFileSync("Hello.txt", message[1]);
+      fs.writeFile("Hello.txt", message[1], (err) => {
+        console.log("Filewrite completed!");
+        res.setHeader("Location", "/");
+        res.statusCode = 302;
+        return res.end();
+      });
     });
-
-    fs.writeFileSync("Hello.txt", "Hello");
-    res.setHeader("Location", "/");
-    res.statusCode = 302;
-    return res.end();
   }
 
   res.setHeader("Content-Type", "text/html");
